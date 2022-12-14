@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restful-web-services
+spec:
+  selector:
+    matchLabels:
+      app: restful-web-services
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: restful-web-services
+    spec:
+      containers:
+      - name: restful-web-services
+        image: peeweeto/restful-web-services:2.0
+        ports:
+        - containerPort: 8080
